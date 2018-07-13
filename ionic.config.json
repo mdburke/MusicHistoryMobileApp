@@ -1,0 +1,8 @@
+{
+  "name": "musicHistoryApp",
+  "app_id": "79c49a9f",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
