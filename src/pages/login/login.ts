@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Auth } from 'aws-amplify';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,6 +21,18 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    Auth.signUp({
+      username: 'Mike',
+      password: 'NINboston9',
+      attributes: {
+        email: 'mike.d.burke@gmail.com',
+        name: 'Mike'
+      }
+    }).then(data => {
+      console.log(data);
+    }).catch(error => {
+      console.log(error);
+    })
   }
 
 }

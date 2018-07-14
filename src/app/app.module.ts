@@ -10,12 +10,17 @@ import { TodayPage } from "../pages/today/today";
 import { SettingsPage } from "../pages/settings/settings";
 import { HistoryPage } from "../pages/history/history";
 
+import Amplify from 'aws-amplify';
+import { LoginPage } from "../pages/login/login";
+import { secrets } from "../../resources/secrets";
+
 @NgModule({
   declarations: [
     MyApp,
     HistoryPage,
     TodayPage,
-    SettingsPage
+    SettingsPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,8 @@ import { HistoryPage } from "../pages/history/history";
     MyApp,
     TodayPage,
     SettingsPage,
-    HistoryPage
+    HistoryPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -34,4 +40,10 @@ import { HistoryPage } from "../pages/history/history";
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    Amplify.configure({
+      Auth: secrets.auth
+    });
+  }
+}
