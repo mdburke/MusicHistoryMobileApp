@@ -14,8 +14,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'today.html',
 })
 export class TodayPage {
+  model: any = {
+    day: '',
+    year: '',
+    artist: '',
+    description: '',
+    album: '',
+    song: '',
+    wiki: '',
+    spotify: '',
+    website: ''
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {

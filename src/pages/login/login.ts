@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Auth } from 'aws-amplify';
 
 /**
@@ -16,23 +16,41 @@ import { Auth } from 'aws-amplify';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  account: {username: string, password: string, email: string, name: string} = {
+    username: '',
+    password: '',
+    email: '',
+    name: ''
+  };
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private toastController: ToastController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  login() {
     Auth.signUp({
-      username: 'Mike',
-      password: 'NINboston9',
+      username: this.account.username,
+      password: this.account.password,
       attributes: {
-        email: 'mike.d.burke@gmail.com',
-        name: 'Mike'
+        email: this.account.email,
+        name: this.account.name
       }
     }).then(data => {
       console.log(data);
     }).catch(error => {
       console.log(error);
     })
+    // let message = 'Succesful Login';
+    // let toast = this.toastController.create({
+    //   message: message,
+    //   duration: 3000,
+    //   position: 'bottom'
+    // });
+    // toast.present();
   }
 
 }

@@ -13,6 +13,7 @@ import { HistoryPage } from "../pages/history/history";
 import Amplify from 'aws-amplify';
 import { LoginPage } from "../pages/login/login";
 import { secrets } from "../../resources/secrets";
+import { DynamodbProvider } from '../providers/dynamodb/dynamodb';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { secrets } from "../../resources/secrets";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DynamodbProvider
   ]
 })
 export class AppModule {
