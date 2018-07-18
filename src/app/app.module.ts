@@ -14,6 +14,7 @@ import Amplify from 'aws-amplify';
 import { LoginPage } from "../pages/login/login";
 import { secrets } from "../../resources/secrets";
 import { DynamodbProvider } from '../providers/dynamodb/dynamodb';
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { DynamodbProvider } from '../providers/dynamodb/dynamodb';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ENV } from "@app/env";
+import { DynamodbProvider } from "../../providers/dynamodb/dynamodb";
 
 /**
  * Generated class for the TodayPage page.
@@ -27,7 +28,7 @@ export class TodayPage {
     website: ''
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dynamoService: DynamodbProvider) {
     console.log(ENV.dynamo_url);
     console.log(ENV.mode);
   }
