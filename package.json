@@ -13,7 +13,7 @@
     "ionic:build:before": "node ./config/env-script.js",
     "ionic:watch:before": "node ./config/env-script.js",
     "ionic:serve:before": "node ./config/env-script.js",
-    "serve:before": "node ./config/env-script.js"
+    "serveme:prod": "ENV=prod ionic-app-scripts serve"
   },
   "config": {
     "ionic_webpack": "./config/webpack.config.js"
