@@ -13,7 +13,7 @@ useDefaultConfig.dev.resolve.alias = {
 };
 
 function environmentPath(env) {
-  //var filePath = './src/env/env' + (env === 'prod' ? '.' + env : '') + '.ts';
+  // var filePath = './src/env/env' + (env === 'prod' ? '.' + env : '') + '.ts';
 
   let filePath = './src/env/env.ts';
 
@@ -34,6 +34,8 @@ function consoleOut(env) {
 
 module.exports = function () {
 
+  console.log(process.env.ENV);
+  console.log(process.env);
   let env = process.env.ENV || 'dev';
 
   consoleOut(env);
