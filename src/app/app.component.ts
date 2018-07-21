@@ -7,6 +7,7 @@ import { TodayPage } from "../pages/today/today";
 import { HistoryPage } from "../pages/history/history";
 import { SettingsPage } from "../pages/settings/settings";
 import { LoginPage } from '../pages/login/login';
+import { DynamodbProvider } from "../providers/dynamodb/dynamodb";
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar,
+              public splashScreen: SplashScreen, public dynamoDBService: DynamodbProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -28,6 +30,8 @@ export class MyApp {
       { title: 'Settings', component: SettingsPage },
       { title: 'Login/Signup', component: LoginPage }
     ];
+
+
 
   }
 

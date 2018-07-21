@@ -12,7 +12,7 @@ import { HistoryPage } from "../pages/history/history";
 
 import Amplify from 'aws-amplify';
 import { LoginPage } from "../pages/login/login";
-import { secrets } from "../../resources/secrets";
+import { secrets } from "../../resources/secrets/secrets";
 import { DynamodbProvider } from '../providers/dynamodb/dynamodb';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
@@ -46,6 +46,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 })
 export class AppModule {
   constructor() {
+    console.log(secrets.auth);
     Amplify.configure({
       Auth: secrets.auth
     });

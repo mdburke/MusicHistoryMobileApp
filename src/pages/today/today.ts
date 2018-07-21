@@ -28,13 +28,18 @@ export class TodayPage {
     website: ''
   };
 
+  date: Date;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public dynamoService: DynamodbProvider) {
     console.log(ENV.dynamo_url);
     console.log(ENV.mode);
   }
 
-  ionViewDidLoad() {
+  async ionViewDidLoad() {
     console.log('ionViewDidLoad TodayPage');
+    this.date = new Date();
+    let data = await this.dynamoService.queryByDay(this.date.getDate().toString());
+    console.log(data);
   }
 
 }
